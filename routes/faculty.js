@@ -1,5 +1,5 @@
 /**
- * Created by lenovo on 2017/7/17.
+ * Created by lenovo on 2017/7/27.
  */
 var express = require('express');
 var mysql = require('mysql');
@@ -11,12 +11,11 @@ var pool = mysql.createPool({
     database:'components',//数据库
     port:3306
 });
-router.get('/text',function (req,res) {
+router.get('/faculty',function (req,res) {
     res.header("Access-Control-Allow-Origin", "*");
-    pool.query('select * from lunbo',function (err,rows,fields) {
-        if(err)throw err;
+    pool.query('select * from faculty', function (err, rows, fields) {
+        if (err)throw err;
         res.send(rows);
-    });
 
 // res.send(
 //      [{name:'nange',title:'11111'},
@@ -25,5 +24,6 @@ router.get('/text',function (req,res) {
 //       {name:'cc',title:'44444'},
 //       {name:'dd',title:'55555'}]
 // );
+    });
 });
 module.exports=router;

@@ -1,5 +1,5 @@
 /**
- * Created by lenovo on 2017/7/17.
+ * Created by lenovo on 2017/7/27.
  */
 var express = require('express');
 var mysql = require('mysql');
@@ -11,9 +11,9 @@ var pool = mysql.createPool({
     database:'components',//数据库
     port:3306
 });
-router.get('/text',function (req,res) {
+router.get('/strengths',function (req,res) {
     res.header("Access-Control-Allow-Origin", "*");
-    pool.query('select * from lunbo',function (err,rows,fields) {
+    pool.query('select * from strengths',function (err,rows,fields) {
         if(err)throw err;
         res.send(rows);
     });
