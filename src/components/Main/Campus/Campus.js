@@ -1,6 +1,33 @@
 import React,{Component} from 'react';
 import './Campus.css';
+import $ from 'jquery';
 class Campus extends Component{
+	 constructor() {
+        super();
+        this.state = {
+            campus:[]
+        }
+    }
+componentDidMount = function () {
+        $.ajax({
+            'url': 'http://192.168.43.245:8005/campus/campus',
+            'type': 'get',
+            'success': function (opt) {
+                console.log(opt);
+                this.setState({campus:[opt[0].title,
+                	                  opt[0].title1,
+                	                  opt[0].title2,
+                	                  opt[0].title3,
+                	                  opt[0].title4,
+                	                  opt[0].title5,
+                	          		  opt[0].title6,
+                	                  opt[0].title7,
+                	           		  opt[0].title8,
+                	                  opt[0].img,
+                           ]});
+            }.bind(this)
+        })
+    }
     render(){
         return(
         	<div>
@@ -10,33 +37,33 @@ class Campus extends Component{
                     <div className="Campucter">
                       <div  className="Campcter">
                         <div className="Camptitle">
-                          <b>在线报名</b>
-                          <p>ONLINE REGISTRATION</p>
+                          <b>{this.state.campus[0]}</b>
+                          <p>{this.state.campus[1]}</p>
                         </div>
                         <div clasName="Campcen">
                           <div className="Campcleft">
-                           <img src="http://11093158.s61i.faiusr.com/4/AD0IpomlBRAEGAAgtbrZvgUo4LG_qAUwlwU40AM.png"/>
+                           <img src={this.state.campus[9]}/>
                           </div>
                           <div className="Campcright">
                            <div className="Campcrt">
-                           <p>填表说明：</p>
-                           <p>1.后面添加 “*” 为必填内容，请填写完整</p>
-                           <p>2.招生办将在收到报名表2日内与您联系确认入学时间</p>
+                           <p>{this.state.campus[2]}</p>
+                           <p>{this.state.campus[3]}</p>
+                           <p>{this.state.campus[4]}</p>
                            </div>
                             <div className="Campcrb">
-                           <p>您的姓名</p>
+                           <p>{this.state.campus[5]}</p>
                            <input type="text"/>*
                            </div>
                            <div className="Campcrb">
-                           <p>联系电话</p>
+                           <p>{this.state.campus[6]}</p>
                            <input type="text"/>*
                            </div>
                            <div className="Campcrb">
-                           <p>毕业学校</p>
+                           <p>{this.state.campus[7]}</p>
                            <input type="text"/>*
                            </div>
                            <div className="Campcrb">
-                           <p>家庭地址</p>
+                           <p>{this.state.campus[8]}</p>
                            <input type="text"/>*
                            </div>
                            <div className="btn">

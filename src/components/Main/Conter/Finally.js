@@ -3,14 +3,38 @@ import './Dazhong.css';
 import logo from '../img/g.png';
 import logot from '../img/bg.png';
 import logos from '../img/zhu.png';
+ import $ from 'jquery'
 class Finally extends Component {
+	 constructor() {
+        super();
+        this.state = {
+            finallys:[]	
+        }
+    }
+componentDidMount = function () {
+        $.ajax({
+            'url': 'http://192.168.43.245:8005/finallys/finallys',
+            'type': 'get',
+            'success': function (opt) {
+                console.log(opt);
+                this.setState({finallys:[opt[0].title,
+                	                 opt[0].title1,
+                	                 opt[0].title2,
+                	                 opt[0].title3,
+                	                 opt[0].img,
+                	                   opt[0].img1,
+                	                     opt[0].img2
+                             ]});
+            }.bind(this)
+        })
+    }
   render() {
     return (
     	<div className="lfinally">
       <div className="lends">
     				<div className="lendt">
-        			<h1>我们的校园资讯</h1>
-      			 	<p>OUR CAMPUS INFORMATION</p>
+        			<h1>{this.state.finallys[0]}</h1>
+      			 	<p>{this.state.finallys[1]}</p>
        			</div >
        			<div className="lendsb">
        			 <div className="lendsl">
@@ -21,18 +45,18 @@ class Finally extends Component {
        			<div className="lendsr">
        			<div className="lendsrc"></div>
        			<div className="lendsrnd">
-       			  <a href="javaStart:;">我院被全国创新教育名校联盟，誉为”百强名校“</a>
-              <p>校园心理节是我校心理健康教育的一项传统活动，通过形式多样的途径，为孩子们创设丰.</p>
+       			  <a href="javaStart:;">{this.state.finallys[2]}</a>
+              <p>{this.state.finallys[3]}</p>
        			</div>
        			 <div className="lendsrn">
        			 	<div className="le"></div>
-       			  <a href="javaStart:;">我院被全国创新教育活动组委会，誉为”全国创新教育实验基地“</a>
-              <p>校园心理节是我校心理健康教育的一项传统活动，通过形式多样的途径，为孩子们创设丰.</p>
+       			  <a href="javaStart:;">{this.state.finallys[2]}</a>
+              <p>{this.state.finallys[3]}</p>
        			</div>
        			<div className="lendsrn">
        			  <div className="ler"></div>
-       			  <a href="javaStart:;">我院被全国企业创新成果案例审定委员，誉为”最具自主创新“</a>
-              <p>校园心理节是我校心理健康教育的一项传统活动，通过形式多样的途径，为孩子们创设丰.</p>
+       			  <a href="javaStart:;">{this.state.finallys[2]}</a>
+              <p>{this.state.finallys[3]}</p>
        			</div>
 
        			</div>

@@ -113,42 +113,29 @@
 	height:230px;
 	/*background: red;*/
 	margin-top:20px;
+	overflow: hidden;
 }
-.lxxiaorlogo>img{
+.lxxiaorlogo>div{
 	width:230px;
-	height:221px;
+	height:200px;
 	float: left;
-	margin-right:8px;
-}	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	margin: 0;
+	overflow: hidden;
+}
+.lxxiaorlogo>div>img{
+	margin: 0;
+	width:230px;
+	height:200px;
+	transition: 1s;
+	float: left;
+	padding-right:10px;
+}
+.lxxiaorlogo>div>img:hover{
+	margin: 0 0 0 -8px;
+}
 
 /*内容第二块*/
-.lXc{
+.lxc{
 	width: 100%;
 	height:676px;
 	background: url(http://11093158.s61i.faiusr.com/2/AD0IpomlBRACGAAgsLrZvgUo3qTz9QUwgA84qAU.jpg) no-repeat center;
@@ -196,8 +183,13 @@
 }
 .lXconter>img:nth-child(1){
 	margin-left: 0px;
-	margin-top:0px
+	margin-top:0px;
 }
+/*.lXconter>img:nth-child(1):hover{
+    width: 150px;
+    height: 150px;
+	background: url("http://11093158.s61i.faiusr.com/4/AD0IpomlBRAEGAAgu7rZvgUohPWtsgYwlgE4lgE.png") no-repeat;
+}*/
 .lXconter>img:nth-child(2){
 	margin-top:0px
 }

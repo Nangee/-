@@ -1,40 +1,131 @@
 import React,{Component} from 'react';
 import './Apply.css';
+import $ from 'jquery';
 class Conter extends Component{
+		 constructor() {
+        super();
+        this.state = {
+            apply:[]
+        }
+    }
+componentDidMount = function () {
+        $.ajax({
+            'url': 'http://192.168.43.245:8005/apply/apply',
+            'type': 'get',
+            'success': function (opt) {
+                console.log(opt);
+                this.setState({apply:[opt[0].title,
+                	                  opt[0].title1,
+                	                  opt[0].title2,
+                	                  opt[0].title3,
+                	                  opt[0].title4,
+                	                  opt[0].title5,
+                	          		  opt[0].title6,
+                	                  opt[0].title7,
+                	           		  opt[0].title8,
+                	                  opt[0].title9,
+                	                  opt[0].img,
+                	                  opt[0].img1,
+                	                  opt[0].img2,
+                	                  opt[0].img3,
+                	                  opt[0].img4,
+                	                  opt[0].img5,
+                	                  opt[0].img6,
+                	                  opt[0].img7,
+                	                  opt[0].img8,
+                	                  opt[0].img9,
+                	                  opt[0].img10,
+                	                  opt[0].img11,
+                	                  opt[0].img12,
+                	                  opt[0].img13,
+                	                  opt[0].img14,
+                	                  opt[0].img15,
+                	                  opt[0].img16,
+                	                  opt[0].img17,
+                	                  opt[0].img18,
+                	                  opt[0].img19,
+                           ]});
+            }.bind(this)
+        })
+    }
     render(){
         return(
         	<div>
+        	    {/*学校介绍*/}
             	<div className="lxbanner"></div>
             		<div className="lxxxiao">
             			<div className="lxxxiaoceter">
             		 		<div className="lxxxiaotitle">
-            		  			 <b>学院介绍 </b>
-            		  			 <p>COLLEGE INTRODUCTION</p>
+            		  			 <b>{this.state.apply[0]} </b>
+            		  			 <p>{this.state.apply[1]}</p>
             		 			</div>
             		 		<div className="lxxiaoconter">
             		 		  <div className="lxxiaoleft">
-            		 		   	<img src="http://11093158.s61i.faiusr.com/4/AD0IpomlBRAEGAAgt7rZvgUovraCnwIwugM4wgI.png"/>
+            		 		   	<img src={this.state.apply[10]}/>
             		 		   	<div className="lxxiaolefp">
-            		 		   	  <p>学院秉承“生态文理、人文文理、特色文理、品牌文理”的办学理念，设有“七系一部四院”，39个专业，68个方向。现有在成教在校生3600多人，教职员工728人，专任教师435人，“双师型”教师196名。</p>
+            		 		   	  <p>{this.state.apply[2]}</p>
             		 		   	</div>
             		 		 </div>
             		 		 	<div className="lxxiaoright">
-            		 		   		<p>学院有正、副教授等高级专业技术职称教师占38%，博士、硕士学位教师占53%，聘请了30多名著名专家、教授为学院的特聘教授和学科带头人；引进了50多名知名度高的专家、教授为各专业课程带头人；每年邀请海内外专家、学者来校讲学交流，使教育教学充满活力，让学生拓展视野，提升文化涵养。一大批优秀青年教师迅速成长，16人次荣获全国优秀教师、南粤优秀教师、南粤优秀教育工作者等称号 </p>
+            		 		   		<p>{this.state.apply[3]} </p>
             		 		   		<div className="lxxiaort">
-            		 		   		  <b>学校目标：</b>
-            		 		   		  <p>学院有正、副教授等高级专业技术职称教师占38%，博士、硕士学位教师占53%，聘请了30多名著名专家、教授为学院的特聘教授和学科带头人；引进了50多名知名度高的专家</p>
+            		 		   		  <b>{this.state.apply[4]}</b>
+            		 		   		  <p>{this.state.apply[5]}</p>
             		 		   		</div>
             		 		   		<div className="lxxiaorlogo">
-            		 		   		  <img src="http://11093158.s61i.faiusr.com/4/AD0IpomlBRAEGAAgu7rZvgUo8Lea6QQw3AE4yAE.png"/>
-            		 		   		  <img src="http://11093158.s61i.faiusr.com/4/AD0IpomlBRAEGAAgvLrZvgUowo7jpAMw3AE4yAE.png"/>
-            		 		   		  <img src="http://11093158.s61i.faiusr.com/4/AD0IpomlBRAEGAAgvrrZvgUo1-fBugMwqgI4rAI.png"/>
+										<div><img src={this.state.apply[11]}/></div>
+										<div><img src={this.state.apply[12]}/></div>
+										<div><img src={this.state.apply[13]}/></div>
+
+
             		 		   		</div>
             		 		  	</div>
             		 		</div>
             		
-            			</div>
-            	</div>
-            </div>
+            	        </div>
+            	    </div>
+            	    {/*学校介绍结束*/}
+            	    {/*我们的课程*/}
+            	    <div className="lxc">
+        	 			<div className="lXcenter">
+	            			<div className="lXctitle">
+	            	   			<b>{this.state.apply[6]}</b>
+	            	   			<p>{this.state.apply[7]} </p>
+	            			</div>
+	            				<div className="lXconter">
+	            	 				<img src={this.state.apply[14]}/>
+	            		 			<img src={this.state.apply[15]}/>
+	            	   				<img src={this.state.apply[16]}/>
+	            	    			<img src={this.state.apply[17]}/>
+	            	     			<img src={this.state.apply[18]}/>
+	            	      			<img src={this.state.apply[19]}/>
+	            	       			<img src={this.state.apply[20]}/>
+	            	        		<img src={this.state.apply[21]}/>
+	            				</div>
+	           			 </div>
+            		</div>
+            		{/*我们的课程结束*/}
+            		{/*教育环境*/}
+            		<div className="lXJy">
+        	 				<div className="lXJycenter">
+	            				<div className="lXJyctitle">
+	            	  				 <b>{this.state.apply[8]} </b>
+	            	  				 <p>{this.state.apply[9]} </p>
+	            				</div>
+	            				<div className="lXJyconter">
+	            				 	<img src={this.state.apply[22]}/>
+	            	  		     	<img src={this.state.apply[23]}/>
+	            	  				<img src={this.state.apply[24]}/>
+	            	    		 	<img src={this.state.apply[25]}/>
+	            	     		 	<img src={this.state.apply[26]}/>
+	            	             	<img src={this.state.apply[27]}/>
+	            	            	<img src={this.state.apply[28]}/>
+	            	             	<img src={this.state.apply[29]}/>
+	            				</div>
+	           			 	</div>
+          			 </div>
+            		{/*教育环境结束*/}
+        </div>
 
         )
     }

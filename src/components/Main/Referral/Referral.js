@@ -2,7 +2,24 @@ import React,{Component} from 'react';
 import './Referral.css';
 import Finally from '../Conter/Finally';
 import Substance from '../Conter/Substance';
+import $ from 'jquery';
 class Referral extends Component{
+	 constructor() {
+        super();
+        this.state = {
+            referral:[]
+        }
+    }
+componentDidMount = function () {
+        $.ajax({
+            'url': 'http://192.168.43.245:8005/referral/referral',
+            'type': 'get',
+            'success': function (opt) {
+                console.log(opt);
+                this.setState({referral:[opt[0].title]});
+            }.bind(this)
+        })
+    }
     render(){
         return(
             <div>
@@ -11,7 +28,7 @@ class Referral extends Component{
                 {/*  Banner  */}
                     <Finally/>
                 <div className="LJN_fullmeasureOuterContent ">
-                    <span>十年教育，高端专注。快来职业技术学院体验不同的人生，为您梦想插上翅膀</span>
+                    <span>{this.state.referral[0]}</span>
                 </div>
                     <Substance/>
             </div>

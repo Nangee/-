@@ -1,42 +1,81 @@
 import React,{ Component } from 'react';
 import { Carousel } from 'antd';
 import './Strengths.css';
-
+import $ from 'jquery'
 class Strengths extends Component {
+	constructor(){
+		super();
+		this.state={
+			ys:[]
+		}
+	}
+componentDidMount = function () {
+        $.ajax({
+            'url':'http://192.168.43.245:8005/Strengths/Strengths',
+            'type': 'get',
+            'success': function (opt) {
+                console.log(opt);
+                this.setState({ys:[opt[0].title,
+                	               opt[0].title1,
+                	               opt[0].title2,
+                	               opt[0].title3,
+                	               opt[0].title4,
+                	               opt[0].title5,
+                	               opt[0].title6,
+                	               opt[0].title7,
+                	               opt[0].title8,
+                	               opt[0].title9,
+                	               opt[0].title10,
+                	               opt[0].title11,
+                	               opt[0].title12,
+                	               opt[0].title13,
+                	               opt[0].title14,
+                	               opt[0].title15,
+                	               opt[0].title16,
+                	               opt[0].title17,
+                	               opt[0].title18,
+                	               opt[0].title19,
+                	               opt[0].title20,
+                	               opt[0].title21
+                               ]});
+            }.bind(this)
+        })
+    }
+components	
     render(){
         return(
             <div className="Strengths">
                <div className="simpleText">
-                   <span>选择我们的优势</span>
-                   <p>CHOOSE OUR ADVANTAGE</p>
+                   <span>{this.state.ys[0]}</span>
+                   <p>{this.state.ys[1]}</p>
                    <div className="float_img"></div>
                    <div className="float_img_1">
-                        <div className="float_img_"><span>就业率高</span></div>
-                        <div className="float_img_e"><span>我们学校的院校设置有最好的学习设 </span></div>
-                        <div className="float_img_e"><span>备，专业的指导老师，从入学到实习 </span></div>
-                       <div className="float_img_e"><span>从毕业到就业，专业难题都可咨询指 </span></div>
-                       <div className="float_img_e1"><span>导老师... </span></div>
+                        <div className="float_img_"><span>{this.state.ys[2]}</span></div>
+                        <div className="float_img_e"><span>{this.state.ys[3]} </span></div>
+                        <div className="float_img_e"><span>{this.state.ys[4]} </span></div>
+                       <div className="float_img_e"><span>{this.state.ys[5]} </span></div>
+                       <div className="float_img_e1"><span>{this.state.ys[6]}</span></div>
                    </div>
                    <div className="float_img_2">
-                       <div className="float_img_"><span>专业丰富</span></div>
-                       <div className="float_img_e"><span>学院提供上百种专业供学生选择，学  </span></div>
-                       <div className="float_img_e"><span>生可根据自己个人的喜好、特长来选  </span></div>
-                       <div className="float_img_e"><span>择对应的专业，即使不会选择也可以  </span></div>
-                       <div className="float_img_e1"><span>咨询相关的导师..</span></div>
+                       <div className="float_img_"><span>{this.state.ys[7]}</span></div>
+                       <div className="float_img_e"><span>{this.state.ys[8]}  </span></div>
+                       <div className="float_img_e"><span>{this.state.ys[9]} </span></div>
+                       <div className="float_img_e"><span>{this.state.ys[10]}  </span></div>
+                       <div className="float_img_e1"><span>{this.state.ys[11]}</span></div>
                    </div>
                    <div className="float_img_3">
-                       <div className="float_img_"><span>优质校园生活</span></div>
-                       <div className="float_img_e"><span>学院在校园内举办多次社交活动，以   </span></div>
-                       <div className="float_img_e"><span>此来提升学生的社交能力和公关能力  </span></div>
-                       <div className="float_img_e"><span>以及面对困难的解决能力，和临时应   </span></div>
-                       <div className="float_img_e1"><span>变能力...</span></div>
+                       <div className="float_img_"><span>{this.state.ys[12]}</span></div>
+                       <div className="float_img_e"><span>{this.state.ys[13]}   </span></div>
+                       <div className="float_img_e"><span>{this.state.ys[14]}</span></div>
+                       <div className="float_img_e"><span>{this.state.ys[15]}   </span></div>
+                       <div className="float_img_e1"><span>{this.state.ys[16]}</span></div>
                    </div>
                    <div className="float_img_4">
-                       <div className="float_img_"><span>提供实习条件</span></div>
-                       <div className="float_img_e"><span>我们学院和多家企业有深度的合作，   </span></div>
-                       <div className="float_img_e"><span>在校期间可为学生提供很多较好的实   </span></div>
-                       <div className="float_img_e"><span>习机会以及提升学生的综合竞争能力    </span></div>
-                       <div className="float_img_e1"><span>多种岗位可供选择...</span></div>
+                       <div className="float_img_"><span>{this.state.ys[17]}</span></div>
+                       <div className="float_img_e"><span>{this.state.ys[18]}  </span></div>
+                       <div className="float_img_e"><span>{this.state.ys[19]}   </span></div>
+                       <div className="float_img_e"><span>{this.state.ys[20]}   </span></div>
+                       <div className="float_img_e1"><span>{this.state.ys[21]}</span></div>
                    </div>
                </div>
             </div>
